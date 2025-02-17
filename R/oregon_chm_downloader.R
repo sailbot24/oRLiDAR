@@ -21,14 +21,13 @@
 #' @importFrom terra rast merge writeRaster mask vect
 #' @importFrom httr GET write_disk progress
 #' @examples
-#'
 #' \dontrun{
 #' library(sf)
 #' aoi <- st_read("path/to/aoi.gpkg")
 #' # Download and mask to exact AOI boundary
 #' chm_path <- download_oregon_chm(aoi, "chm_output.tif", mask = TRUE)
 #' }
-download_oregon_chm <- function(aoi, output_path = "oregon_lidar_output.tif",
+download_oregon_chmde<- function(aoi, output_path = "oregon_lidar_output.tif",
                                 max_tile_size = 2000, mask = TRUE, quiet = FALSE) {
   # Validate inputs
   if (!inherits(aoi, c("sf", "sfc"))) {
