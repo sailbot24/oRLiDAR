@@ -7,24 +7,24 @@
 download_oregon_chm(
   aoi,
   output_path = "oregon_lidar_output.tif",
-  max_tile_size = 2000,
+  max_tile_size = 20000,
   mask = TRUE,
   quiet = FALSE
 )
 }
 \arguments{
-\item{aoi}{sf or sfc object representing the area of interest}
+\item{aoi}{\code{sf} or \code{sfc} object representing the area of interest}
 
-\item{output_path}{Character string specifying the output file path}
+\item{output_path}{A character string specifying the file path for the output raster (GeoTIFF). Default is \code{"esri_rest_output.tif"}.}
 
-\item{max_tile_size}{Numeric value specifying the maximum tile size in pixels}
+\item{max_tile_size}{Integer specifying the maximum size (in pixels) of each downloaded tile. Default is \code{20000}.}
 
-\item{mask}{Logical indicating whether to mask the output to the AOI boundary}
+\item{mask}{Logical; if \code{TRUE}, the merged raster will be masked to the AOI boundary. Default is \code{TRUE}.}
 
-\item{quiet}{Logical indicating whether to suppress progress messages}
+\item{quiet}{Logical; if \code{TRUE}, suppresses progress messages. Default is \code{FALSE}.}
 }
 \value{
-Path to the downloaded and merged CHM raster file
+A \code{SpatRaster} object representing the merged (and optionally masked) raster. The final raster is also saved to \code{output_path}.
 }
 \description{
 Downloads CHM LiDAR data from DOGAMI's REST API service for a specified area of interest.
@@ -44,4 +44,5 @@ aoi <- st_read("path/to/aoi.gpkg")
 # Download and mask to exact AOI boundary
 chm_path <- download_oregon_chm(aoi, "chm_output.tif", mask = TRUE)
 }
+
 }
