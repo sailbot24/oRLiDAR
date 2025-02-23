@@ -36,7 +36,7 @@
 #' aoi <- st_as_sfc(st_bbox(c(xmin = -100, ymin = 40, xmax = -99, ymax = 41), crs = st_crs(4326)))
 #'
 #' # Download the raster from an ESRI REST image service
-#' raster <- ddownload_conus_productivity(aoi,
+#' raster <- download_conus_productivity(aoi,
 #'                                output_path = "conus_productivity.tif")
 #' }
 #'
